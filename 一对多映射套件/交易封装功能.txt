@@ -1,0 +1,28 @@
+package transaction
+
+import (
+	"encoding/json"
+	"fmt"
+	"mapping-toolkit/user"
+)
+
+type TxData struct {
+	CID      string          `json:"cid"`
+	UserInfo *user.UserInfo  `json:"user"`
+	Timestamp int64          `json:"timestamp"`
+}
+
+// 封装交易数据包
+func BuildTransaction(cid string, u *user.UserInfo) ([]byte, error) {
+	if cid == "" || u == nil {
+		return nil, fmt.Errorf("invalid CID or UserInfo")
+	}
+
+	tx := &TxData{
+		CID:       cid,
+		UserInfo:  u,
+		Timestamp: time.Now().Unix(),
+	}
+
+	return json.Marshal(tx)
+}

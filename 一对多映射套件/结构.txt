@@ -1,0 +1,10 @@
+mapping-toolkit/
+│── ipfs/
+│   └── ipfs.go
+│── user/
+│   └── user.go
+│── transaction/
+│   └── tx.go
+│── mapper/
+│   └── mapper.go
+│── main.go
