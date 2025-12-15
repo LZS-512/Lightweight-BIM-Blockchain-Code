@@ -1,0 +1,25 @@
+package user
+
+import "fmt"
+
+type UserInfo struct {
+	UserID    string
+	Dept      string
+	Team      string
+	UserName  string
+}
+
+// 模拟从系统获取用户信息
+func GetUserInfo(userID string) (*UserInfo, error) {
+	// 实际系统中可替换为：数据库或组织身份管理系统
+	if userID == "" {
+		return nil, fmt.Errorf("userID is empty")
+	}
+
+	return &UserInfo{
+		UserID:   userID,
+		Dept:     "Architecture",
+		Team:     "BIM-Tech",
+		UserName: "User-" + userID,
+	}, nil
+}
